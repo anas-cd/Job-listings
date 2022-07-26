@@ -1,5 +1,4 @@
-  
-html {
+  html {
     box-sizing: border-box;
     font-size: 100%;
 }
@@ -9,22 +8,280 @@ html {
 }
 
 body {
-    padding: 1.5rem;
-    background-color: $ltGray;
-    color: $black;
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.3;
-
+    padding: 0;
+    margin: 0;
+    background-color: $light-grayish-cyan;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
     
+}
+
+header {
+    width: 100%;
+    height: 9.75rem;
+    background-color: $desaturated-dark-cyan;
+    background-image: url(../../images/bg-header-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media #{$mq-760-down} {
+        background-image: url(../../images/bg-header-mobile.svg);
+    }
 }
 
 main {
     display: flex;
-    justify-content: center;
-    padding: 1rem;
-    background-color: $white;
-    border-radius: 15px;
-    max-width: 1200px;
-    margin: 0 auto;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    padding: 0rem 1.5rem;
+    background-color: transparent;
+    width: 100%;
+    max-width: 69.375rem;
+
+    .wrapper {
+        position: relative;
+        .filterBar {
+            display: flex;
+            flex-flow: row nowrap;
+            width: 100%;
+            height: auto;
+            background-color: $white;
+            box-shadow: 0px 2px 30px -10px #5ba4a4;
+            border-radius: 0.4rem;
+            padding: 1.25rem 1.75rem;
+            position: absolute;
+            transform: translateY(-2.25rem);
+    
+            @media #{$mq-760-down} {
+                position: relative;
+                margin-bottom: -2rem;
+                padding-bottom: 0.25rem;
+            }
+            .FTWrapper {
+                display: flex;
+                flex-flow: row wrap;
+                .filterTags {
+                    background-color: $light-grayish-cyan-filters;
+                    height: 2rem;
+                    border-radius: 0.25rem;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: center;
+                    overflow: hidden;
+                    margin-right: 1rem;
+        
+                    @media #{$mq-760-down} {
+                        margin: 0rem 1rem 1rem 0rem;
+                    }
+                    .tag {
+                        color: $desaturated-dark-cyan;
+                        font-size: 0.9rem;
+                        font-weight: 700;
+                        margin-left: 0.5rem;
+                    }
+        
+                    .deselect {
+                        background-color: $desaturated-dark-cyan;
+                        background-image: url(../../images/icon-remove.svg);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        border: none;
+                        width: 2rem;
+                        height: 2rem;
+                        margin-left: 0.5rem;
+                        cursor: pointer;
+        
+                        &:active {
+                            background-color: $very-dark-grayish-cyan;
+                        }
+        
+                    }
+        
+                }
+            }
+            
+            
+            .clear {
+                background-color: transparent;
+                border: none;
+                margin-left: auto;
+                color: $desaturated-dark-cyan;
+                font-size: 0.9rem;
+                font-weight: 500;
+                cursor: pointer;
+                transition-duration: 0.5s;
+                text-decoration-color: transparent;
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-thickness: 0.1rem;
+                }
+            }
+        }
+    }
+    
+    .jobList {
+        height: fit-content;
+        width: 100%;
+        margin-top: 4.6875rem;
+
+        @media #{$mq-760-down} {
+            margin-top: 3rem;
+        }
+        
+        .jobCard {
+            display: flex;
+            flex-flow: row nowrap;
+            height: 9.5rem;
+            width: 100%;
+            background-color: $white;
+            overflow: hidden;
+            border-radius: .4rem;
+            margin-bottom: 20px;
+            box-shadow: 0 20px 30px -30px #5ba4a4;
+
+            @media #{$mq-760-down} {
+                height: fit-content;
+                margin-bottom: 2.5rem;
+            }
+            
+            &::before {
+                content: "";
+                display: block;
+                width: 5px;
+                height: 100%;
+                background-color: $desaturated-dark-cyan;
+                position: relative;
+
+                @media #{$mq-760-down} {
+                    height: auto;
+                }
+            }
+
+            .jobContentWrapper {
+                display: flex;
+                flex-flow: row nowrap;
+                padding: 2rem 2.2rem;
+                align-items: center;
+                width: 100%;
+
+                @media #{$mq-760-down} {
+                    flex-flow: column nowrap;
+                    align-items: unset;
+                    padding: 2rem 1rem;
+                }
+
+                img {
+                    height: 5.5rem;
+
+                    @media #{$mq-760-down} {
+                        height: 3rem;
+                        position: absolute;
+                        transform: translateY(-3.5rem);
+                    }
+                }
+                
+                .info {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    margin-left: 1.5625rem;
+
+                    @media #{$mq-760-down} {
+                        margin-left: unset;
+                    }
+                    .company {
+                        display: flex;
+                        flex-direction: row;
+
+                        @media #{$mq-760-down} {
+                            * {
+                                margin-top: 0.2rem;
+                            }
+                        }
+                        .companyName {
+                            color: $desaturated-dark-cyan;
+                            margin-right: 1rem;
+                            font-weight: 700;
+
+                            @media #{$mq-760-down} {
+                                margin-top: 0.4rem;
+                            }
+                        }
+                        .new {
+                            background-color: $desaturated-dark-cyan;
+                            color: $white;
+                            border-radius: 1rem;
+                            font-size: 0.8rem;
+                            padding: 0.3rem .5rem 0rem;
+                            margin-right: .5rem;
+                        }
+                        .featured {
+                            background-color: $very-dark-grayish-cyan;
+                            color: $white;
+                            border-radius: 1rem;
+                            font-size: 0.8rem;
+                            padding: 0.3rem .5rem 0rem;
+                            margin-right: .5rem;
+                        }
+                    }
+                    h1 {
+                        font-size: 1.25rem;
+                        font-weight: 700;
+                        color: $very-dark-grayish-cyan;
+                        transition-duration: 0.15s;
+
+                        @media #{$mq-760-down} {
+                            font-size: 0.8rem;
+                        }
+                        &:hover {
+                            color: $desaturated-dark-cyan;
+                            cursor: pointer;
+                        }
+                    }
+                    .jobAttr {
+                        color: $dark-grayish-cyan;
+                        margin: 0.8rem 0rem;
+                        user-select: none;
+                    }
+                }
+
+                .attributes {
+                    margin-left: auto;
+                    display: flex;
+                    flex-flow: row wrap;
+
+                    @media #{$mq-760-down} {
+                        border-top: 1px solid $dark-grayish-cyan;
+                        margin-left: unset;
+                    }
+                    .attrTag {
+                        background-color: $light-grayish-cyan-filters;
+                        color: $desaturated-dark-cyan;
+                        border-radius: 0.2rem;
+                        font-size: 1rem;
+                        font-weight: 700;
+                        padding: 0.5rem 0.5rem 0.3rem;
+                        margin-left: 1rem;
+                        transition-duration: 0.15s;
+
+                        @media #{$mq-760-down} {
+                            margin: 1rem 1rem 0rem 0rem;
+                        }
+                        &:hover {
+                            background-color: $desaturated-dark-cyan;
+                            color: $white;
+                            cursor: pointer;
+                        }
+
+                    }
+                }
+
+            }
+            
+            
+        }
+    }
+    
+
 }
 

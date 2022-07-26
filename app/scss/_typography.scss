@@ -1,3 +1,6 @@
+* {
+    font-family: 'League Spartan', sans-serif;
+}
 h1, h2, h3 {
     margin-top: 0px;
 }
@@ -5,4 +8,9 @@ h1, h2, h3 {
 h1 {
     text-transform: uppercase;
     color: $black;
+    margin: 0;
+}
+
+body {
+    font-size: 0.9375rem;
 }

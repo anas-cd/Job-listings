@@ -9,23 +9,143 @@
         <meta name="theme-color" content="#1843c1" />
         <meta name="apple-mobile-web-app-status-bar-style" content="#1843c1">
 
-        <title></title>
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+        <title>Frontend Mentor | Job Listings</title>
 
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap" rel="stylesheet"> 
         
-        <!-- CSS File -->
+        <!-- CSS File and styling-->
         <link rel="stylesheet" href="app/dist/style.css">
+
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution { font-size: 11px; text-align: center; }
+            .attribution a { color: hsl(228, 45%, 44%); }
+        </style>
+
+        <!-- Import Vue.js -->
+        <script src="https://unpkg.com/vue@3"></script>
     </head>
     <body>
-
-        <main>
+        <!-- top banner -->
+        <header role="banner">
             
-            <h1>your boilerplate is ready</h1>
+        </header>
+
+        <!-- vue app, includes the filter bar and job cards -->
+        <main role="main" id="vueApp"> 
+            
+            <div class="wrapper">
+                <div class="filterBar">
+                    <div class="FTWrapper">
+                        <div class="filterTags">
+                            <p class="tag">CSS</p>
+                            <button class="deselect"></button>
+                        </div>
+                        <div class="filterTags">
+                            <p class="tag">Html</p>
+                            <button class="deselect"></button>
+                        </div>
+                        <div class="filterTags">
+                            <p class="tag">Frontend</p>
+                            <button class="deselect"></button>
+                        </div>
+                        <div class="filterTags">
+                            <p class="tag">Senior</p>
+                            <button class="deselect"></button>
+                        </div>
+                    </div>
+                    <button class="clear">Clear</button>
+                </div>
+            </div>
+            
+
+            <div class="jobList">
+
+                <div class="jobCard">
+                    <div class="jobContentWrapper">
+                        <img src="./images/photosnap.svg" alt="icon-photosnap">
+                        <div class="info">
+                            <div class="company">
+                                <p class="companyName">Photosnap</p>
+                                <p class="new">NEW!</p>
+                                <p class="featured">FEATURED</p>
+                            </div>
+                            <h1 class="position">Senior Frontend Developer</h1>
+                            <p class="jobAttr">
+                                1d ago&nbsp;&nbsp;&nbsp;
+                                &bull;
+                                &nbsp;&nbsp;&nbsp;Full Time&nbsp;&nbsp;&nbsp;
+                                &bull;
+                                &nbsp;&nbsp;&nbsp;USA only</p>
+    
+                        </div>
+
+                        <div class="attributes">
+                            <p class="attrTag">Frontend</p>
+                            <p class="attrTag">CSS</p>
+                            <p class="attrTag">Senior</p>
+                            <p class="attrTag">Html</p>
+                            <p class="attrTag">Junior</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="jobCard">
+                    <div class="jobContentWrapper">
+                        <img src="./images/faceit.svg" alt="icon-faceit">
+                        <div class="info">
+                            <div class="company">
+                                <p class="companyName">Faceit</p>
+                                <p class="new">NEW!</p>
+                                <p class="featured">FEATURED</p>
+                            </div>
+                            <h1 class="position">Senior Frontend Developer</h1>
+                            <p class="jobAttr">
+                                1d ago&nbsp;&nbsp;&nbsp;
+                                &bull;
+                                &nbsp;&nbsp;&nbsp;Full Time&nbsp;&nbsp;&nbsp;
+                                &bull;
+                                &nbsp;&nbsp;&nbsp;USA only</p>
+    
+                        </div>
+
+                        <div class="attributes">
+                            <p class="attrTag">Frontend</p>
+                            <p class="attrTag">CSS</p>
+                            <p class="attrTag">Senior</p>
+                            <p class="attrTag">Html</p>
+                            <p class="attrTag">Junior</p>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+            
             
         </main>
+        <footer role="contentinfo">
+            <div class="attribution">
+                Designed by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+                Coded by <a href="#">Anas</a>.
+            </div>
+        </footer>
+
 
         <!-- JavaScript File -->
         <script src="app/dist/all.js"></script>
+
+        <!-- import Vue components (redundent if using javascript minifier)-->
+        <!-- <script src="./app/js/VueComps/thread.js"></script> -->
+        <!-- <script src="./app/js/VueComps/commentor.js"></script> -->
+        <!-- <script src="./app/js/VueComps/intersection.js"></script> --> 
+        <!-- <script src="./app/js/VueComps/comment.js"></script> -->
+
+        <!-- Vue mounting -->
+        <script> const mountedApp = VueApp.mount('#vueApp'); </script> 
     </body>
 </html>

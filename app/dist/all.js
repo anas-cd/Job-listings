@@ -1,2 +1,2 @@
-console.log("Load script.js");var app={};app.global={init:function(){console.log("load global functions"),app.global.loadHeader()},loadHeader:function(){console.log("loadHeader()")}},app.global.init();
+console.log("Load script.js");var app={};const VueApp=Vue.createApp({data:function(){return{title:"hi this is working now"}},mounted:function(){},methods:{}});app.global={init:function(){console.log("load global functions"),app.global.loadHeader()},loadHeader:function(){console.log("loadHeader()")}},app.global.init();
 //# sourceMappingURL=all.js.map
