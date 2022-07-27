@@ -39,33 +39,21 @@
         <main role="main" id="vueApp"> 
             
             <div class="wrapper">
-                <div class="filterBar">
+                <div class="filterBar" v-show="filterList.length">
                     <div class="FTWrapper">
-                        <div class="filterTags">
-                            <p class="tag">CSS</p>
-                            <button class="deselect"></button>
-                        </div>
-                        <div class="filterTags">
-                            <p class="tag">Html</p>
-                            <button class="deselect"></button>
-                        </div>
-                        <div class="filterTags">
-                            <p class="tag">Frontend</p>
-                            <button class="deselect"></button>
-                        </div>
-                        <div class="filterTags">
-                            <p class="tag">Senior</p>
-                            <button class="deselect"></button>
+                        <div class="filterTags" v-for="tag in filterList" :key="tag">
+                            <p class="tag">{{tag}}</p>
+                            <button class="deselect" @click="filterDeselect(tag)"></button>
                         </div>
                     </div>
-                    <button class="clear">Clear</button>
+                    <button class="clear" @click="filterClear()">Clear</button>
                 </div>
             </div>
             
 
             <div class="jobList">
 
-                <job-card v-for="job in jobsData" :key="job.id" :job="job"></job-card>
+                <job-card v-for="job in jobsData" :key="job.id" :job="job" :filter="filterList" @add-filter="filterPush"></job-card>
                 
             </div>
             

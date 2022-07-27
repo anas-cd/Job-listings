@@ -16,7 +16,7 @@
     
     &::before {
         content: "";
-        display: block;
+        display: none;
         width: 5px;
         height: 100%;
         background-color: $desaturated-dark-cyan;
@@ -147,5 +147,9 @@
 
     }
     
-    
+    &__featured {
+        &::before {
+            display: block;
+        }
+    }
 }

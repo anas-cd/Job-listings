@@ -1,8 +1,8 @@
 const VueApp = Vue.createApp ({
     data: function() {
         return {
-            title: "hi this is working now",
-            jobsData: []
+            jobsData: [],
+            filterList: []
         }
     },
     mounted: function() {
@@ -37,6 +37,26 @@ const VueApp = Vue.createApp ({
         },
         getLocal() {
             return localStorage.getItem("jobsDataJson");
+        }, 
+        filterPush(tag) {
+            
+            if (!this.filterList.includes(tag)) {
+                this.filterList.push(tag);
+            }  
+        },
+        filterDeselect(tag) {
+            for (let i = 0; i < this.filterList.length; i++) {
+                
+                if (this.filterList[i] === tag) { 
+                    this.filterList.splice(i,1);
+                } 
+                
+            }
+            
+        },
+        filterClear() { 
+            this.filterList.length = 0;
+            
         }
     }
 })

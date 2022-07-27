@@ -1,15 +1,19 @@
 VueApp.component('job-card', {
-    emits: [],
+    emits: ['add-filter'],
     props: {
         job: {
             type: Object,
-            required: true, 
+            required: true
+        },
+        filter: {
+            type: Array,
+            required: true
         }
     },
     template: 
     /* html */ 
     `
-    <div class="jobCard">
+    <div class="jobCard" :class="{jobCard__featured: isFeatured}" v-show="isFiltered()">
         <div class="jobContentWrapper">
             <img :src="logo" :alt="logoAlt">
             <div class="info">
@@ -29,10 +33,10 @@ VueApp.component('job-card', {
             </div>
 
             <div class="attributes">
-                <p class="attrTag">{{role}}</p>
-                <p class="attrTag">{{level}}</p>
-                <p class="attrTag" v-for="(lang, index) in langs" :key="index">{{lang}}</p>
-                <p class="attrTag" v-for="(tool, index) in tools" :key="index">{{tool}}</p>
+                <p class="attrTag" @click="addFilter(role)">{{role}}</p>
+                <p class="attrTag" @click="addFilter(level)">{{level}}</p>
+                <p class="attrTag" v-for="(lang, index) in langs" :key="index" @click="addFilter(lang)">{{lang}}</p>
+                <p class="attrTag" v-for="(tool, index) in tools" :key="index" @click="addFilter(tool)">{{tool}}</p>
             </div>
         </div>
 
@@ -51,20 +55,41 @@ VueApp.component('job-card', {
             contract: this.job.contract,
             location: this.job.location,
             langs: this.job.languages,
-            tools: this.job.tools
+            tools: this.job.tools, 
+            allTags: []
 
         }
     },
+    mounted: function(){
+        this.initArray();
+    },
     computed: {
         logoAlt: function() {
-            return "icon-"+this.company+"."; 
+            return "icon-"+this.company+".";
         }
     },
     watch: {
 
     },
     methods: {
+        addFilter(tag) { 
+            this.$emit('add-filter',tag);
+        },
+        isFiltered() {
+            
+            if (this.filter.length === 0) {
+                return true;
 
+            }else if ( this.filter.every(tag => {return this.allTags.includes(tag)}) ) {
+                return true;
+
+            }else return false;
+                
+        }, 
+        initArray() {
+            this.allTags.push(this.role, this.level); 
+            this.allTags = [...this.allTags, ...this.langs, ...this.tools];
+        } 
     }
     
-})
+}) 
