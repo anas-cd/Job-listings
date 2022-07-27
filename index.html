@@ -65,64 +65,7 @@
 
             <div class="jobList">
 
-                <div class="jobCard">
-                    <div class="jobContentWrapper">
-                        <img src="./images/photosnap.svg" alt="icon-photosnap">
-                        <div class="info">
-                            <div class="company">
-                                <p class="companyName">Photosnap</p>
-                                <p class="new">NEW!</p>
-                                <p class="featured">FEATURED</p>
-                            </div>
-                            <h1 class="position">Senior Frontend Developer</h1>
-                            <p class="jobAttr">
-                                1d ago&nbsp;&nbsp;&nbsp;
-                                &bull;
-                                &nbsp;&nbsp;&nbsp;Full Time&nbsp;&nbsp;&nbsp;
-                                &bull;
-                                &nbsp;&nbsp;&nbsp;USA only</p>
-    
-                        </div>
-
-                        <div class="attributes">
-                            <p class="attrTag">Frontend</p>
-                            <p class="attrTag">CSS</p>
-                            <p class="attrTag">Senior</p>
-                            <p class="attrTag">Html</p>
-                            <p class="attrTag">Junior</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="jobCard">
-                    <div class="jobContentWrapper">
-                        <img src="./images/faceit.svg" alt="icon-faceit">
-                        <div class="info">
-                            <div class="company">
-                                <p class="companyName">Faceit</p>
-                                <p class="new">NEW!</p>
-                                <p class="featured">FEATURED</p>
-                            </div>
-                            <h1 class="position">Senior Frontend Developer</h1>
-                            <p class="jobAttr">
-                                1d ago&nbsp;&nbsp;&nbsp;
-                                &bull;
-                                &nbsp;&nbsp;&nbsp;Full Time&nbsp;&nbsp;&nbsp;
-                                &bull;
-                                &nbsp;&nbsp;&nbsp;USA only</p>
-    
-                        </div>
-
-                        <div class="attributes">
-                            <p class="attrTag">Frontend</p>
-                            <p class="attrTag">CSS</p>
-                            <p class="attrTag">Senior</p>
-                            <p class="attrTag">Html</p>
-                            <p class="attrTag">Junior</p>
-                        </div>
-                    </div>
-
-                </div>
+                <job-card v-for="job in jobsData" :key="job.id" :job="job"></job-card>
                 
             </div>
             
