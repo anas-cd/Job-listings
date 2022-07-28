@@ -13,6 +13,7 @@ VueApp.component('job-card', {
     template: 
     /* html */ 
     `
+    <Transition name="slide-fade">
     <div class="jobCard" :class="{jobCard__featured: isFeatured}" v-show="isFiltered()">
         <div class="jobContentWrapper">
             <img :src="logo" :alt="logoAlt">
@@ -41,6 +42,7 @@ VueApp.component('job-card', {
         </div>
 
     </div>
+    </Transition>
     `,
     data: function() {
         return {
@@ -76,7 +78,7 @@ VueApp.component('job-card', {
             this.$emit('add-filter',tag);
         },
         isFiltered() {
-            
+            // checking if this card got all the tags in the filter bar when it's not empty
             if (this.filter.length === 0) {
                 return true;
 

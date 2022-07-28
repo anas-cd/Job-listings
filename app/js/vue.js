@@ -10,7 +10,7 @@ const VueApp = Vue.createApp ({
     },
     methods: {
         fetcher() {
-
+            // checking if there is stored data otherwise fetcheing new data from data.json file
             if (this.getLocal() === null) {
                 console.log("fetching new data");
                 fetch('./app/data/data.json')
@@ -39,7 +39,7 @@ const VueApp = Vue.createApp ({
             return localStorage.getItem("jobsDataJson");
         }, 
         filterPush(tag) {
-            
+            // checking if the tag is already in filters otherwise adding it 
             if (!this.filterList.includes(tag)) {
                 this.filterList.push(tag);
             }  
