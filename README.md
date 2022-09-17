@@ -82,6 +82,6 @@ this.arr = [...this.arr1, ...this.arr2, ...this.arr3];
 
 
 ## Author
-
+- Website - [dev.anasali.info](https://dev.anasali.info/)
 - Frontend Mentor - [@anas-cd](https://www.frontendmentor.io/profile/anas-cd)
 - Twitter - [@AnasCd](https://twitter.com/AnasCd)
